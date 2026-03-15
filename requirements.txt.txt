@@ -1,0 +1,9 @@
+flask
+flask-sqlalchemy
+google-generativeai
+pypdf
+python-docx
+pandas
+openpyxl
+requests
+gunicorn
