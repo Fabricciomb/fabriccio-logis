@@ -9,22 +9,6 @@ from pathlib import Path
 # ==============================================================================
 # 1. ENGENHARIA DE DEPENDÊNCIAS (Auto-Setup)
 # ==============================================================================
-def setup_environment():
-    """Garante que todas as bibliotecas necessárias estejam instaladas no primeiro run."""
-    required_packages = [
-        'flask', 'flask-sqlalchemy', 'google-generativeai', 
-        'pypdf', 'python-docx', 'pandas', 'openpyxl', 'requests', 'gunicorn'
-    ]
-    print("[*] Verificando ambiente Fabriccio-Logis...")
-    for package in required_packages:
-        try:
-            __import__(package.replace('-', '_'))
-        except ImportError:
-            print(f"[!] Instalando dependência: {package}")
-            subprocess.check_call([sys.executable, "-m", "pip", "install", package])
-
-setup_environment()
-
 from flask import Flask, render_template_string, request, jsonify, send_file
 from flask_sqlalchemy import SQLAlchemy
 import google.generativeai as genai
